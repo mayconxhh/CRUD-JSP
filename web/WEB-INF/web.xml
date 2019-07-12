@@ -12,6 +12,14 @@
         <servlet-name>Cliente</servlet-name>
         <servlet-class>Controller.Cliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Persona</servlet-name>
+        <servlet-class>Controller.Persona</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PersonaCliente</servlet-name>
+        <servlet-class>Controller.PersonaCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionUser</servlet-name>
         <url-pattern>/SesionUser</url-pattern>
@@ -80,6 +88,38 @@
         <servlet-name>nuevo_cliente</servlet-name>
         <url-pattern>/nuevo_cliente</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>agregar_familiar</servlet-name>
+        <jsp-file>/views/agregar_familiar.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agregar_familiar</servlet-name>
+        <url-pattern>/agregar_familiar</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>vincular_familiar</servlet-name>
+        <jsp-file>/views/vincular_familiar.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vincular_familiar</servlet-name>
+        <url-pattern>/vincular_familiar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrar_vacuna</servlet-name>
+        <url-pattern>/registrar_vacuna</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>registrar_vacuna</servlet-name>
+        <jsp-file>/views/registrar_vacuna.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrar_peso</servlet-name>
+        <url-pattern>/registrar_peso</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>registrar_peso</servlet-name>
+        <jsp-file>/views/registrar_peso.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
@@ -87,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>Cliente</servlet-name>
         <url-pattern>/Cliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Persona</servlet-name>
+        <url-pattern>/Persona</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PersonaCliente</servlet-name>
+        <url-pattern>/PersonaCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

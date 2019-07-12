@@ -1,8 +1,3 @@
-<%-- 
-    Document   : editar_cliente
-    Created on : 12 jul. 2019, 07:53:02
-    Author     : Familia
---%>
 
 <%@page import="ModelDAO.ClienteDAO"%>
 <%@page import="Model.Cliente"%>
