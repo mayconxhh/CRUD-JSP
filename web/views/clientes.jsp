@@ -41,7 +41,7 @@
                       <tbody>
                         <%
                           ClienteDAO dao = new ClienteDAO();
-                          List<Cliente>list = dao.listD();
+                          List<Cliente>list = dao.list();
                           Iterator<Cliente>iter = list.iterator();
                           Cliente cl = null;
 

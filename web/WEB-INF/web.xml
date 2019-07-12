@@ -49,6 +49,14 @@
         <url-pattern>/editar_paciente</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>nuevo_paciente</servlet-name>
+        <jsp-file>/views/nuevo_paciente.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>nuevo_paciente</servlet-name>
+        <url-pattern>/nuevo_paciente</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>clientes</servlet-name>
         <jsp-file>/views/clientes.jsp</jsp-file>
     </servlet>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>editar_cliente</servlet-name>
         <url-pattern>/editar_cliente</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>nuevo_cliente</servlet-name>
+        <jsp-file>/views/nuevo_cliente.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>nuevo_cliente</servlet-name>
+        <url-pattern>/nuevo_cliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>

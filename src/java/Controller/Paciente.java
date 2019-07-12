@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Paciente extends HttpServlet {
         PacienteDAO dao = new PacienteDAO();
         
         try (PrintWriter out = response.getWriter()) {
+            HttpSession sesion = request.getSession();
             /* TODO output your page here. You may use following sample code. */
             if(request.getParameter("editarPaciente") != null){
                 pc.setIdMascota(Integer.parseInt(request.getParameter("idPaciente")));
@@ -45,6 +47,21 @@ public class Paciente extends HttpServlet {
                 pc.setColorPelo(request.getParameter("color"));
                 pc.setFechaNacimiento(request.getParameter("nacimiento"));
                 dao.edit(pc);
+                
+                response.sendRedirect("pacientes");
+            }
+            
+            if( request.getParameter("nuevoPaciente") != null ){
+                Model.Usuario us = new Model.Usuario();
+                us = (Model.Usuario) sesion.getAttribute("usuario");
+                pc.setIdUsuario(us.getIdUsuario());
+                pc.setAliasMascota(request.getParameter("alias"));
+                pc.setIdCliente(Integer.parseInt(request.getParameter("idCliente")));
+                pc.setEspecie(request.getParameter("especie"));
+                pc.setRaza(request.getParameter("raza"));
+                pc.setColorPelo(request.getParameter("color"));
+                pc.setFechaNacimiento(request.getParameter("nacimiento"));
+                dao.add(pc);
                 
                 response.sendRedirect("pacientes");
             }

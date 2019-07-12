@@ -78,17 +78,59 @@ public class ClienteDAO implements ClienteCRUD {
 
     @Override
     public Cliente list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "select * from cliente where idCliente="+id;
+        Cliente pl = new Cliente();
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                pl.setIdCliente(rs.getInt("idCliente"));
+                pl.setPrimerApellido(rs.getString("primerApellido"));
+                pl.setCuentaBanco(rs.getString("cuentaBanco"));
+                pl.setTelefono(rs.getString("telefono"));
+                pl.setDireccion(rs.getString("direccion"));                
+            }
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return pl;
     }
 
     @Override
     public boolean add(Cliente cl) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "insert into cliente(idUsuario, primerApellido, cuentaBanco, direccion, telefono) values("+cl.getIdUsuario()+", '"+cl.getPrimerApellido()+"', '"+cl.getCuentaBanco()+"', '"+cl.getDireccion()+"', '"+cl.getTelefono()+"')";
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return false;
     }
 
     @Override
     public boolean edit(Cliente cl) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String sql = "update cliente set primerApellido='"+cl.getPrimerApellido()+"', cuentaBanco='"+cl.getCuentaBanco()+"', direccion='"+cl.getDireccion()+"', telefono='"+cl.getTelefono()+"' where idCliente="+cl.getIdCliente();
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return false;
     }
 
     @Override

@@ -112,7 +112,18 @@ public class PacienteDAO implements PacienteCRUD {
 
     @Override
     public boolean add(Paciente cl) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "insert into paciente (idUsuario, aliasMascota, idCliente, especie, raza, colorPelo, fechaNacimiento) values('"+cl.getIdUsuario()+"','"+cl.getAliasMascota()+"', '"+cl.getIdCliente()+"', '"+cl.getEspecie()+"', '"+cl.getRaza()+"', '"+cl.getColorPelo()+"', '"+cl.getFechaNacimiento()+"')";
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return false;
     }
 
     @Override
