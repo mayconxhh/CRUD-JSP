@@ -20,6 +20,10 @@
         <servlet-name>PersonaCliente</servlet-name>
         <servlet-class>Controller.PersonaCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Peso</servlet-name>
+        <servlet-class>Controller.Peso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionUser</servlet-name>
         <url-pattern>/SesionUser</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>PersonaCliente</servlet-name>
         <url-pattern>/PersonaCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Peso</servlet-name>
+        <url-pattern>/Peso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

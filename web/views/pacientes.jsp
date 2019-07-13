@@ -33,7 +33,7 @@
 	                          <th>Fecha Nac.</th>
 	                          <th>Raza</th>
 	                          <th>Especie</th>
-	                          <th>Blanco</th>
+	                          <th>Color</th>
 	                          <th colspan="3">Opciones</th>
 	                        </tr>
 	                      </thead>

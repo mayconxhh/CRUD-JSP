@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.Usuario;
-import ModelDAO.PersonaClienteDAO;
+import ModelDAO.PesoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Familia
  */
-public class PersonaCliente extends HttpServlet {
-
+public class Peso extends HttpServlet {
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,18 +32,25 @@ public class PersonaCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+        
+        HttpSession sesion = request.getSession();
+        PesoDAO dao = new PesoDAO();
+        Usuario us = new Usuario();
+        us = (Usuario) sesion.getAttribute("usuario");
+        
         try (PrintWriter out = response.getWriter()) {
-            HttpSession sesion = request.getSession();
-            Model.PersonaCliente pe = new Model.PersonaCliente();
-            PersonaClienteDAO dao = new PersonaClienteDAO();
-            Usuario us = new Usuario();
-            us = (Usuario) sesion.getAttribute("usuario");
             /* TODO output your page here. You may use following sample code. */
-            if(request.getParameter("agregarFamiliar") != null){
-                Model.PersonaCliente p = new Model.PersonaCliente();
-                p.setIdUsuairo(us.getIdUsuario());
-                p.setIdCliente(Integer.parseInt(request.getParameter("idCliente")));
-                p.setIdPersona(Integer.parseInt(request.getParameter("idPersona")));
+        
+            /* TODO output your page here. You may use following sample code. */
+            if(request.getParameter("addPeso") != null ){
+                Model.Peso p = new Model.Peso();
+                
+                p.setIdUsuario(us.getIdUsuario());
+                p.setIdMascota(Integer.parseInt(request.getParameter("idMascota")));
+                p.setFecha(request.getParameter("fecha"));
+                p.setPeso(Float.valueOf(request.getParameter("peso")));
                 dao.add(p);
                 
                 response.sendRedirect("dashboard");

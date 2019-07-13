@@ -30,7 +30,7 @@
                         <div class="form-group">
                           <label for="nombre" class="col-sm-2 control-label">Mascota</label>
                           <div class="col-sm-10">
-                            <select type="text" class="form-control" id="nombre" name="nombre" required>
+                            <select type="text" class="form-control" id="idMascota" name="idMascota" required>
                               <%
                                 PacienteDAO daoP = new PacienteDAO();
                                 List<Paciente>listP = daoP.listD();
@@ -49,19 +49,19 @@
                         <div class="form-group">
                           <label for="apellido" class="col-sm-2 control-label">Fecha</label>
                           <div class="col-sm-10">
-                            <input type="date" class="form-control" id="apellido" placeholder="Fecha actual" name="apellido" required minlength="3">
+                            <input type="date" class="form-control" id="apellido" placeholder="Fecha actual" name="fecha" required minlength="3">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="apellido" class="col-sm-2 control-label">Peso</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="apellido" placeholder="Peso" name="apellido" required minlength="3">
+                            <input type="text" class="form-control" id="apellido" placeholder="Peso" name="peso" required minlength="3">
                           </div>
                         </div>
                         <br>
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">agregar registro</button>
+                            <input type="submit" class="btn btn-primary" value="Registrar peso" name="addPeso">
                           </div>
                         </div>
                       </form>
