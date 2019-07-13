@@ -33,7 +33,7 @@
                       <div class="form-group">
                         <label for="nombre" class="col-sm-2 control-label">Mascota</label>
                         <div class="col-sm-10">
-                          <select type="text" class="form-control" id="nombre" name="nombre" required>
+                          <select type="text" class="form-control" id="nombre" name="idMascota" required>
                             <%
                               PacienteDAO daoP = new PacienteDAO();
                               List<Paciente>listP = daoP.listD();
@@ -52,19 +52,25 @@
                       <div class="form-group">
                         <label for="apellido" class="col-sm-2 control-label">Fecha</label>
                         <div class="col-sm-10">
-                          <input type="date" class="form-control" id="apellido" placeholder="Fecha actual" name="apellido" required minlength="3">
+                          <input type="date" class="form-control" id="apellido" placeholder="Fecha actual" name="fecha" required minlength="3">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="telefono" class="col-sm-2 control-label">Nombre de Vacuna</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="telefono" placeholder="vacuna" name="telefono" required minlength="6">
+                          <input type="text" class="form-control" id="telefono" placeholder="vacuna" name="nombreVacuna" required minlength="6">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="telefono" class="col-sm-2 control-label">Tratamiento</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="telefono" placeholder="tratamiento" name="telefono" required minlength="6">
+                          <input type="text" class="form-control" id="telefono" placeholder="tratamiento" name="tratamiento" required minlength="3">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="apellido" class="col-sm-2 control-label">Fecha</label>
+                        <div class="col-sm-10">
+                          <input type="date" class="form-control" id="apellido" placeholder="Fecha actual" name="fechaProxima" required minlength="3">
                         </div>
                       </div>
                       <br>

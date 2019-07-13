@@ -24,6 +24,10 @@
         <servlet-name>Peso</servlet-name>
         <servlet-class>Controller.Peso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Vacuna</servlet-name>
+        <servlet-class>Controller.Vacuna</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionUser</servlet-name>
         <url-pattern>/SesionUser</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>Peso</servlet-name>
         <url-pattern>/Peso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Vacuna</servlet-name>
+        <url-pattern>/Vacuna</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
