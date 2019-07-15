@@ -1,8 +1,6 @@
 
 <%@page import="Model.Persona"%>
 <%@page import="ModelDAO.PersonaDAO"%>
-<%@page import="Model.Paciente"%>
-<%@page import="ModelDAO.PacienteDAO"%>
 <%@page import="Model.Cita"%>
 <%@page import="ModelDAO.CitaDAO"%>
 <%@page import="ModelDAO.ClienteDAO"%>
@@ -11,7 +9,6 @@
 <%
   HttpSession sesion = request.getSession();
   Cita cita = new Cita();
-  Paciente paciente = new Paciente();
 
   if (sesion != null && sesion.getAttribute("usuario") != null) {
 
@@ -20,12 +17,8 @@
     if( request.getParameter("cita") != null && request.getParameter("cita") != "" ){
 
       int idU = Integer.parseInt(request.getParameter("cita"));
-      PacienteDAO daoP = new PacienteDAO();
       CitaDAO dao = new CitaDAO();
       cita = dao.list(idU);
-      
-      paciente = daoP.list(cita.getIdMascota());
-      
       
     } else {
       response.sendRedirect("clientes");
@@ -42,7 +35,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="content-box-large">
                 <div class="panel-heading">
-                    <div class="panel-title"><h3>Cita: <%= paciente.getAliasMascota() %></h3></div>
+                    <div class="panel-title"><h3>Cita: <%= cita.getNombreCita() %></h3></div>
                     
                     <!-- <div class="panel-options">
                         <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -51,13 +44,14 @@
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="post" action="Cita">
+                      <input type="text" class="hidden" id="idCita"  name="idCita" value="<%= cita.getIdCita() %>">
                       <div class="form-group">
                         <label for="nombre" class="col-sm-2 control-label">Familiar(es)</label>
                         <div class="col-sm-10">
-                          <select type="text" class="form-control" id="nombre" name="idMascota" required>
+                          <select type="text" class="form-control" id="nombre" name="idPersona" required>
                             <%  PersonaDAO dao = new PersonaDAO();
                                 List<Persona> listP = new ArrayList<>();
-                                listP = dao.listPC(paciente.getIdCliente());
+                                listP = dao.listPC(cita.getIdCliente());
                                 Iterator<Persona>iter = listP.iterator();
                                 Persona per = null;
                                       
@@ -72,19 +66,28 @@
                       <div class="form-group">
                         <label for="apellido" class="col-sm-2 control-label">Fecha</label>
                         <div class="col-sm-10">
-                          <input type="date" class="form-control" id="apellido" placeholder="Fecha" name="fecha" required>
+                          <input type="date" class="form-control" id="apellido" placeholder="Fecha" name="fecha" required value="<%= cita.getFecha() %>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="apellido" class="col-sm-2 control-label">Estado</label>
+                        <div class="col-sm-10">
+                          <select type="text" class="form-control" id="nombre" name="estado" required>
+                            <option value="true" <% if(cita.isEstado()) { out.println("selected"); } %>>Hecho</option>
+                            <option value="falso" <% if(!cita.isEstado()) { out.println("selected"); } %>>Pendiente</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
                         <div class="col-sm-10">
-                          <textarea type="text" class="form-control" id="descripcion" placeholder="Descripción" name="descripcion"></textarea>
+                          <textarea type="text" class="form-control" id="descripcion" placeholder="Descripción" name="descripcion"><%= cita.getDescripcion() %></textarea>
                         </div>
                       </div>
                       <br>
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <input type="submit" class="btn btn-primary" value="Registrar vacuna" name="nuevaCita">
+                          <input type="submit" class="btn btn-primary" value="Guardar cambios" name="editarCita">
                         </div>
                       </div>
                     </form>

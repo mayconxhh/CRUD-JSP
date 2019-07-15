@@ -24,6 +24,7 @@ public class PersonaDAO implements PersonaCRUD {
     Persona u = new Persona();
     
     public List listPC(int id) {
+        
         ArrayList<Persona>list = new ArrayList<>();
         String sql = "select persona.idPersona, persona.nombrePersona, persona.apellidoPersona from personaCliente inner join persona on personaCliente.idPersona=persona.idPersona where idCliente="+id;
         

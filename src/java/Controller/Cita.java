@@ -49,6 +49,7 @@ public class Cita extends HttpServlet {
                 
                 Model.Cita ci = new Model.Cita();
                 ci.setIdUsuario(us.getIdUsuario());
+                ci.setIdCliente(pc.getIdCliente());
                 ci.setNombreCita(pc.getAliasMascota());
                 ci.setDescripcion(request.getParameter("descripcion"));
                 ci.setEstado(false);
@@ -56,6 +57,28 @@ public class Cita extends HttpServlet {
                 ci.setIdMascota(Integer.parseInt(request.getParameter("idMascota")));
                 
                 dao.add(ci);
+                
+                response.sendRedirect("citas");
+            }
+            
+            if(request.getParameter("editarCita") != null){
+                PacienteDAO daoc = new PacienteDAO();
+                Model.Paciente pc = new Model.Paciente();
+                boolean status = false;
+                
+                if(request.getParameter("estado").equals("true")){
+                    status = true;
+                }
+                
+                Model.Cita ci = new Model.Cita();
+                ci.setIdCita(Integer.parseInt(request.getParameter("idCita")));
+                ci.setIdUsuario(us.getIdUsuario());
+                ci.setIdPersona(Integer.parseInt(request.getParameter("idPersona")));
+                ci.setDescripcion(request.getParameter("descripcion"));
+                ci.setEstado(status);
+                ci.setFecha(request.getParameter("fecha"));
+                
+                dao.edit(ci);
                 
                 response.sendRedirect("citas");
             }

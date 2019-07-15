@@ -12,6 +12,7 @@ package Model;
 public class Cita {
     int idCita;
     int idUsuario;
+    int idCliente;
     int idMascota;
     int idPersona;
     String nombreCita;
@@ -86,4 +87,12 @@ public class Cita {
         this.nombreCita = nombreCita;
     }
 
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+    
 }

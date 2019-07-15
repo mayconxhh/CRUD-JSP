@@ -35,6 +35,7 @@ public class CitaDAO implements CitaCRUD{
             while(rs.next()){
                 Cita cl = new Cita();
                 cl.setIdCita(rs.getInt("idCita"));
+                cl.setIdCliente(rs.getInt("idCliente"));
                 cl.setNombreCita(rs.getString("nombreCita"));
                 cl.setIdUsuario(rs.getInt("idUsuario"));
                 cl.setIdMascota(rs.getInt("idMascota"));
@@ -63,6 +64,7 @@ public class CitaDAO implements CitaCRUD{
             while(rs.next()){
                 
                 cl.setIdCita(rs.getInt("idCita"));
+                cl.setIdCliente(rs.getInt("idCliente"));
                 cl.setNombreCita(rs.getString("nombreCita"));
                 cl.setIdUsuario(rs.getInt("idUsuario"));
                 cl.setIdMascota(rs.getInt("idMascota"));
@@ -81,7 +83,7 @@ public class CitaDAO implements CitaCRUD{
     @Override
     public boolean add(Cita ci) {
         
-        String sql = "insert into cita(idUsuario, idMascota, nombreCita, estado, fecha, descripcion) values("+ci.getIdUsuario()+", "+ci.getIdMascota()+", '"+ci.getNombreCita()+"', "+ci.isEstado()+", '"+ci.getFecha()+"', '"+ci.getDescripcion()+"')";
+        String sql = "insert into cita(idUsuario, idMascota, idCliente, nombreCita, estado, fecha, descripcion) values("+ci.getIdUsuario()+", "+ci.getIdMascota()+", "+ci.getIdCliente()+",'"+ci.getNombreCita()+"', "+ci.isEstado()+", '"+ci.getFecha()+"', '"+ci.getDescripcion()+"')";
         
         try {
             con = cn.getConnection();
@@ -97,7 +99,18 @@ public class CitaDAO implements CitaCRUD{
 
     @Override
     public boolean edit(Cita ci) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "update cita set idUsuario='"+ci.getIdUsuario()+"', idPersona='"+ci.getIdPersona()+"', estado="+ci.isEstado()+", descripcion='"+ci.getDescripcion()+"', fecha='"+ci.getFecha()+"' where idCita="+ci.getIdCita();
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return false;
     }
 
     @Override
