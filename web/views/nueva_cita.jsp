@@ -6,7 +6,7 @@
   HttpSession sesion = request.getSession();
 
   if (sesion != null && sesion.getAttribute("usuario") != null) {
-  
+
     System.out.println("conectado");
 
   } else {
@@ -35,7 +35,7 @@
                           <select type="text" class="form-control" id="nombre" name="idMascota" required>
                             <%
                               PacienteDAO daoP = new PacienteDAO();
-                              List<Paciente>listP = daoP.listD();
+                              List<Paciente>listP = daoP.list();
                               Iterator<Paciente>iterP = listP.iterator();
                               Paciente pc = null;
 
