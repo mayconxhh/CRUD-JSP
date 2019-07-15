@@ -28,6 +28,10 @@
         <servlet-name>Vacuna</servlet-name>
         <servlet-class>Controller.Vacuna</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cita</servlet-name>
+        <servlet-class>Controller.Cita</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionUser</servlet-name>
         <url-pattern>/SesionUser</url-pattern>
@@ -129,6 +133,30 @@
         <jsp-file>/views/registrar_peso.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
+        <servlet-name>editar_cita</servlet-name>
+        <url-pattern>/editar_cita</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>editar_cita</servlet-name>
+        <jsp-file>/views/editar_cita.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>citas</servlet-name>
+        <url-pattern>/citas</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>citas</servlet-name>
+        <jsp-file>/views/citas.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>nueva_cita</servlet-name>
+        <url-pattern>/nueva_cita</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>nueva_cita</servlet-name>
+        <jsp-file>/views/nueva_cita.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
     </servlet-mapping>
@@ -151,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>Vacuna</servlet-name>
         <url-pattern>/Vacuna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cita</servlet-name>
+        <url-pattern>/Cita</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

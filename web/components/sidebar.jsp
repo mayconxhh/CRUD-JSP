@@ -9,10 +9,9 @@
     <ul class="nav">
         <!-- Main menu -->
         <li><a href="dashboard"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+        <li><a href="citas"><i class="glyphicon glyphicon-list"></i> Lista de Citas</a></li>
         <li><a href="pacientes"><i class="glyphicon glyphicon-list"></i> Lista de pacientes</a></li>
-        <li><a href="nuevo_paciente"><i class="glyphicon glyphicon-plus"></i> Agregar paciente</a></li>
         <li><a href="clientes"><i class="glyphicon glyphicon-list"></i> Lista de Clientes</a></li>
-        <li><a href="nuevo_cliente"><i class="glyphicon glyphicon-plus"></i> Agregar cliente</a></li>
         <li><a href="agregar_familiar"><i class="glyphicon glyphicon-plus"></i> Agregar familiar</a></li>
         <li><a href="registrar_vacuna"><i class="glyphicon glyphicon-plus"></i> Registrar vacuna</a></li>
         <li><a href="registrar_peso"><i class="glyphicon glyphicon-plus"></i> Registrar peso</a></li>

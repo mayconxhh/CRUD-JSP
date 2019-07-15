@@ -23,6 +23,9 @@
 	            <div class="content-box-large">
 	                <div class="panel-heading">
 	                    <div class="panel-title">Pacientes</div>
+                        <div class="panel-options">
+                          <a href="nuevo_paciente" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Nuevo Paciente</a>
+                        </div>
 	                </div>
 	                <div class="panel-body">
 	                    <table class="table">

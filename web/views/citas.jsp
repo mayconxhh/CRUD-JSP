@@ -1,4 +1,6 @@
 
+<%@page import="Model.Cita"%>
+<%@page import="ModelDAO.CitaDAO"%>
 <%@page import="ModelDAO.ClienteDAO"%>
 <%@page import="Model.Cliente"%>
 <%@page import="java.util.*"%>
@@ -13,6 +15,7 @@
   }
 
 %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="./components/header.jsp" />
 <div class="col-md-10">
     <div class="row">
@@ -21,7 +24,7 @@
                 <div class="panel-heading">
                     <div class="panel-title">Clientes</div>
                     <div class="panel-options">
-                      <a href="nuevo_cliente" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Nuevo Cliente</a>
+                      <a href="nueva_cita" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> Nueva cita</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -29,40 +32,40 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Apellido</th>
-                          <th>Cuenta de Banco</th>
-                          <th>Telefono</th>
-                          <th>Dirección</th>
+                          <th>Nombre</th>
+                          <th>Fecha</th>
+                          <th>Estado</th>
+                          <th>DescripciÃ³n</th>
                           <th colspan="2">Opciones</th>
                         </tr>
                       </thead>
                       <tbody>
                         <%
-                          ClienteDAO dao = new ClienteDAO();
-                          List<Cliente>list = dao.list();
-                          Iterator<Cliente>iter = list.iterator();
-                          Cliente cl = null;
+                          CitaDAO dao = new CitaDAO();
+                          List<Cita> list = dao.list();
+                          Iterator<Cita>iter = list.iterator();
+                          Cita ci = null;
 
                           while(iter.hasNext()){
-                              cl = iter.next();
+                              ci = iter.next();
 
                         %>
                           <tr>
-                              <td><%= cl.getIdCliente()%></td>
-                              <td><%= cl.getPrimerApellido()%></td>
-                              <td><%= cl.getCuentaBanco()%></td>
-                              <td><%= cl.getTelefono()%></td>
-                              <td><%= cl.getDireccion()%></td>
+                              <td><%= ci.getIdCita()%></td>
+                              <td><%= ci.getNombreCita()%></td>
+                              <td><%= ci.getFecha()%></td>
+                              <td><% if (ci.isEstado()) { out.println("Hecho");} else { out.println("Pendiente"); } %></td>
+                              <td><%= ci.getDescripcion()%></td>
                               <td>
-                                <form action="editar_cliente?cliente=<%= cl.getIdCliente() %>" method="post">
+                                <form action="editar_cita?cita=<%= ci.getIdCita() %>" method="post">
                                   <button type="submit" class="btn btn-warning btn-xs btn-block">
                                     <span class="glyphicon glyphicon-edit"></span>
                                   </button>
                                 </form>
                               </td>
                               <td>
-                                <form action="Cliente" method="post">
-                                  <input type="text" class="hidden" value="<%= cl.getIdCliente() %>" name="delete">
+                                <form action="Cita" method="post">
+                                  <input type="text" class="hidden" value="<%= ci.getIdCita()%>">
                                   <button type="submit" class="btn btn-danger btn-xs btn-block">
                                     <span class="glyphicon glyphicon-trash"></span>
                                   </button>

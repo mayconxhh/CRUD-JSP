@@ -12,6 +12,23 @@
         <title>Mi Mascota | Dashboard</title>
         <link href="./utils/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="./utils/css/styles.css" rel="stylesheet" type="text/css" />
+        <style>
+          html {
+            height: 100vh;
+            position: relative;
+          }
+          body {
+            min-height: 100%;
+            margin: 0;
+            padding-bottom: 75px;
+          }
+          footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 75px;
+          }
+        </style>
     </head>
     <body>
       <div class="header">

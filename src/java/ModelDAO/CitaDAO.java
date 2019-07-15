@@ -5,10 +5,9 @@
  */
 package ModelDAO;
 
-import Interface.PersonaCRUD;
-import Model.Persona;
 import Config.Conection;
-import com.mysql.jdbc.Connection;
+import Interface.CitaCRUD;
+import Model.Cita;
 import java.sql.*;
 import java.util.*;
 
@@ -16,41 +15,17 @@ import java.util.*;
  *
  * @author Familia
  */
-public class PersonaDAO implements PersonaCRUD {
+public class CitaDAO implements CitaCRUD{
     Conection cn = new Conection();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    Persona u = new Persona();
-    
-    public List listPC(int id) {
-        ArrayList<Persona>list = new ArrayList<>();
-        String sql = "select persona.idPersona, persona.nombrePersona, persona.apellidoPersona from personaCliente inner join persona on personaCliente.idPersona=persona.idPersona where idCliente="+id;
-        
-        try {
-            con = cn.getConnection();
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            
-            while(rs.next()){
-                Persona p = new Persona();
-                p.setIdPersona(rs.getInt("idPersona"));
-                p.setNombrePersona(rs.getString("nombrePersona"));
-                p.setApellidoPersona(rs.getString("apellidoPersona"));
-                list.add(p);
-            }
-            
-        } catch(SQLException ex){
-            System.out.println("Error: "+ex);
-        }
-        
-        return list;
-    }
+    Cita ci = new Cita();
 
     @Override
     public List list() {
-        ArrayList<Persona>list = new ArrayList<>();
-        String sql = "select * from persona";
+        ArrayList<Cita>list = new ArrayList<>();
+        String sql = "select * from cita";
         
         try {
             con = cn.getConnection();
@@ -58,14 +33,16 @@ public class PersonaDAO implements PersonaCRUD {
             rs = ps.executeQuery();
             
             while(rs.next()){
-                Persona p = new Persona();
-                p.setIdPersona(rs.getInt("idPersona"));
-                p.setNombrePersona(rs.getString("nombrePersona"));
-                p.setApellidoPersona(rs.getString("apellidoPersona"));
-                p.setTelefono(rs.getString("telefono"));
-                list.add(p);
+                Cita cl = new Cita();
+                cl.setIdCita(rs.getInt("idCita"));
+                cl.setNombreCita(rs.getString("nombreCita"));
+                cl.setIdUsuario(rs.getInt("idUsuario"));
+                cl.setIdMascota(rs.getInt("idMascota"));
+                cl.setDescripcion(rs.getString("descripcion"));
+                cl.setFecha(rs.getString("fecha"));
+                cl.setEstado(rs.getBoolean("estado"));
+                list.add(cl);
             }
-            
         } catch(SQLException ex){
             System.out.println("Error: "+ex);
         }
@@ -74,18 +51,43 @@ public class PersonaDAO implements PersonaCRUD {
     }
 
     @Override
-    public Persona list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Cita list(int id) {
+        Cita cl = new Cita();
+        String sql = "select * from cita where idCita="+id;
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                cl.setIdCita(rs.getInt("idCita"));
+                cl.setNombreCita(rs.getString("nombreCita"));
+                cl.setIdUsuario(rs.getInt("idUsuario"));
+                cl.setIdMascota(rs.getInt("idMascota"));
+                cl.setDescripcion(rs.getString("descripcion"));
+                cl.setFecha(rs.getString("fecha"));
+                cl.setEstado(rs.getBoolean("estado"));
+            }
+            
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return cl;
     }
 
     @Override
-    public boolean add(Persona p) {
-        String sql = "insert into Persona (idUsuario, nombrePersona, apellidoPersona, telefono) values("+p.getIdUsuario()+", '"+p.getNombrePersona()+"', '"+p.getApellidoPersona()+"', '"+p.getTelefono()+"')";
+    public boolean add(Cita ci) {
+        
+        String sql = "insert into cita(idUsuario, idMascota, nombreCita, estado, fecha, descripcion) values("+ci.getIdUsuario()+", "+ci.getIdMascota()+", '"+ci.getNombreCita()+"', "+ci.isEstado()+", '"+ci.getFecha()+"', '"+ci.getDescripcion()+"')";
         
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
+            
         } catch(SQLException ex){
             System.out.println("Error: "+ex);
         }
@@ -94,7 +96,7 @@ public class PersonaDAO implements PersonaCRUD {
     }
 
     @Override
-    public boolean edit(Persona p) {
+    public boolean edit(Cita ci) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
