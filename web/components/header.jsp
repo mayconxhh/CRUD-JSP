@@ -56,7 +56,10 @@
                  <div class="col-md-2">
                     <div class="navbar navbar-inverse" role="banner">
                         <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                          <ul class="nav navbar-nav">
+                          <ul class="nav navbar-nav" style="display: flex;">
+                            <li>
+                              <a class="btn btn-link" href="informacion" style="color: white; font-weight: 700;font-size: 14px !important;">Perfil</a>
+                            </li>
                             <li>
                               <form action="SesionUser">
                                 <input class="btn btn-link" style="color: white; font-weight: 700; margin: 8px 0;"type="submit" value="Cerrar sesión" name="logout">

@@ -51,6 +51,34 @@ public class CitaDAO implements CitaCRUD{
         return list;
     }
 
+    public List listLS() {
+        ArrayList<Cita>list = new ArrayList<>();
+        String sql = "select * from cita where idUsuario=1 order by idCita DESC LIMIT 5";
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Cita cl = new Cita();
+                cl.setIdCita(rs.getInt("idCita"));
+                cl.setIdCliente(rs.getInt("idCliente"));
+                cl.setNombreCita(rs.getString("nombreCita"));
+                cl.setIdUsuario(rs.getInt("idUsuario"));
+                cl.setIdMascota(rs.getInt("idMascota"));
+                cl.setDescripcion(rs.getString("descripcion"));
+                cl.setFecha(rs.getString("fecha"));
+                cl.setEstado(rs.getBoolean("estado"));
+                list.add(cl);
+            }
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return list;
+    }
+
     @Override
     public Cita list(int id) {
         Cita cl = new Cita();

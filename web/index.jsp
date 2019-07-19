@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -121,7 +115,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="header" style="position: fixed; width: 100%; z-index: 999;">
                         <div class="logo">
                            <h1 style="font-weight: 800">
-                              <a href="index.jsp">MI <span style="color: #00a8e0; text-decoration: none;">MASCOTA</span></a>
+                              <a href="index">MI <span style="color: #00a8e0; text-decoration: none;">MASCOTA</span></a>
                           </h1>
                         </div>
                         <div class="headerNav">
@@ -131,6 +125,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li class="nav-item" style="text-align: center;"> <a class="nav-link" href="#about">Nosotros</a> </li>
                                 <li class="nav-item" style="text-align: center;"> <a class="nav-link" href="#gallery">Fotos</a> </li>
                                 <li class="nav-item" style="text-align: center;"> <a class="nav-link" href="#contact">Contáctanos</a> </li>
+                                <li class="nav-item" style="text-align: center;"> <a class="nav-link" href="nueva_cita_cliente">Cita</a> </li>
                               </ul>
                             </nav>
                         </div>

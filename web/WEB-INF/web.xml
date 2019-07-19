@@ -37,6 +37,14 @@
         <url-pattern>/SesionUser</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>login</servlet-name>
         <jsp-file>/views/login.jsp</jsp-file>
     </servlet>
@@ -155,6 +163,22 @@
     <servlet>
         <servlet-name>nueva_cita</servlet-name>
         <jsp-file>/views/nueva_cita.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>nueva_cita_cliente</servlet-name>
+        <url-pattern>/nueva_cita_cliente</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>nueva_cita_cliente</servlet-name>
+        <jsp-file>/views/nueva_cita_cliente.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>informacion</servlet-name>
+        <url-pattern>/informacion</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>informacion</servlet-name>
+        <jsp-file>/views/informacion.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>

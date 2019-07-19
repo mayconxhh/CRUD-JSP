@@ -60,6 +60,24 @@ public class Cita extends HttpServlet {
                 
                 response.sendRedirect("citas");
             }
+
+            if(request.getParameter("nuevaCitaCliente") != null){
+                System.out.println("entra en if");
+                PacienteDAO daoc = new PacienteDAO();
+                Model.Paciente pc = new Model.Paciente();
+                pc = daoc.list(Integer.parseInt(request.getParameter("idMascota")));
+                System.out.println("casita");
+                Model.Cita ci = new Model.Cita();
+                ci.setIdUsuario(1);
+                ci.setIdCliente(pc.getIdCliente());
+                ci.setNombreCita(pc.getAliasMascota());
+                ci.setDescripcion(request.getParameter("descripcion"));
+                ci.setEstado(false);
+                ci.setFecha(request.getParameter("fecha"));
+                ci.setIdMascota(Integer.parseInt(request.getParameter("idMascota")));
+                dao.add(ci);
+                response.sendRedirect("nueva_cita_cliente");
+            }
             
             if(request.getParameter("editarCita") != null){
                 PacienteDAO daoc = new PacienteDAO();
