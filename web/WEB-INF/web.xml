@@ -36,6 +36,10 @@
         <servlet-name>Usuario</servlet-name>
         <servlet-class>Controller.Usuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>image</servlet-name>
+        <servlet-class>Controller.image</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionUser</servlet-name>
         <url-pattern>/SesionUser</url-pattern>
@@ -185,6 +189,14 @@
         <jsp-file>/views/informacion.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
+        <servlet-name>grafico</servlet-name>
+        <url-pattern>/grafico</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>grafico</servlet-name>
+        <jsp-file>/views/graficoPeso.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
     </servlet-mapping>
@@ -215,6 +227,10 @@
     <servlet-mapping>
         <servlet-name>Usuario</servlet-name>
         <url-pattern>/Usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>image</servlet-name>
+        <url-pattern>/image</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

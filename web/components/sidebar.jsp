@@ -15,5 +15,6 @@
         <li><a href="agregar_familiar"><i class="glyphicon glyphicon-plus"></i> Agregar familiar</a></li>
         <li><a href="registrar_vacuna"><i class="glyphicon glyphicon-plus"></i> Registrar vacuna</a></li>
         <li><a href="registrar_peso"><i class="glyphicon glyphicon-plus"></i> Registrar peso</a></li>
+        <li><a href="grafico"><i class="glyphicon glyphicon-plus"></i> Histograma de Peso</a></li>
     </ul>
 </div>
