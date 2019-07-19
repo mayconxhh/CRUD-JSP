@@ -32,6 +32,10 @@
         <servlet-name>Cita</servlet-name>
         <servlet-class>Controller.Cita</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Usuario</servlet-name>
+        <servlet-class>Controller.Usuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionUser</servlet-name>
         <url-pattern>/SesionUser</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>Cita</servlet-name>
         <url-pattern>/Cita</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Usuario</servlet-name>
+        <url-pattern>/Usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

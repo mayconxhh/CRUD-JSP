@@ -88,7 +88,18 @@ public class UsuarioDAO implements UsuarioCRUD{
 
     @Override
     public boolean edit(Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "update usuario set nombres='"+user.getNombres()+"', apellidos='"+user.getApellidos()+"', telefono='"+user.getTelefono()+"' where idUsuario="+user.getIdUsuario();
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+        } catch(SQLException ex){
+            System.out.println("Error: "+ex);
+        }
+        
+        return false;
     }
 
     @Override

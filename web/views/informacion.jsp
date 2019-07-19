@@ -23,17 +23,17 @@
                     <div class="panel-title"><h3>Información de Usuario</h3></div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="post" action="Cliente">
+                    <form class="form-horizontal" role="form" method="post" action="Usuario">
                       <div class="form-group">
                         <label for="username" class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" name="username" required minlength="3" value="<%= u.getUsername()%>">
+                          <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" name="username" required minlength="3" value="<%= u.getUsername()%>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="nombre" class="col-sm-2 control-label">Nombres</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="nombre" placeholder="Nombres completos" name="nombre" required minlength="3" value="<%= u.getNombres()%>">
+                          <input type="text" class="form-control" id="nombre" placeholder="Nombres completos" name="nombres" required minlength="3" value="<%= u.getNombres()%>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -45,7 +45,7 @@
                       <div class="form-group">
                         <label for="rol" class="col-sm-2 control-label">Rol</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="rol" placeholder="Rol de usuario" name="rol" required minlength="3" value="<%= u.getRol()%>">
+                          <input type="text" class="form-control" id="rol" placeholder="Rol de usuario" name="rol" required minlength="3" value="<%= u.getRol()%>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
